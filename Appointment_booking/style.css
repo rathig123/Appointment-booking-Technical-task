@@ -668,6 +668,45 @@ body{
     }
 }
 
+/* Tablet */
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .sidebar {
+    display: none;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
 /* Appointment indicator on calendar */
 .day.has-appointment {
     background-color: #ffffff;
