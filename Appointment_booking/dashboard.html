@@ -199,6 +199,150 @@
             grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) minmax(280px, 1.5fr) auto;
             grid-auto-rows: minmax(52px, auto);
         }
+
+        /* ================= TABLET ================= */
+@media (max-width: 768px) {
+
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #book-now{
+    position: static;
+    transform: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .sidebar{
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+  }
+
+  .content{
+    width: 100%;
+    padding: 10px;
+  }
+
+  .dashboard-content{
+    width: 100%;
+    padding: 16px;
+  }
+
+  .search-section{
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+    gap: 10px;
+  }
+
+  .search-input{
+    width: 100%;
+  }
+
+  .date-range{
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .update-btn{
+    width: 100%;
+  }
+
+}
+
+
+/* ================= MOBILE ================= */
+@media (max-width: 480px) {
+
+  .header{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  #company-name{
+    font-size: 18px;
+  }
+
+  #book-now{
+    position: static;
+    transform: none;
+    width: 100%;
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .sidebar{
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .sidebar-item{
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .sidebar-label{
+    font-size: 10px;
+  }
+
+  .content{
+    padding: 8px;
+  }
+
+  .dashboard-content{
+    width: 100%;
+    padding: 12px;
+  }
+
+  .dashboard-title{
+    font-size: 18px;
+  }
+
+  .search-section{
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    gap: 8px;
+  }
+
+  .search-input{
+    width: 100%;
+  }
+
+  .date-range{
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .date-range input{
+    width: 100%;
+  }
+
+  .update-btn{
+    width: 100%;
+  }
+
+  .appointments-table{
+    min-width: 600px;
+  }
+
+}
+        
     </style>
 </head>
 <body>
