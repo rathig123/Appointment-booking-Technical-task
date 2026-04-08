@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CapMinds</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+
+        
+        .search-section {
+            width: calc(100% + 48px);
+            margin: 0 -24px 20px;
+            padding: 12px 18px;
+            background-color: #F7F7F7;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+            min-height: 48px;
+            box-shadow: 0 1px 8px rgba(15, 23, 42, 0.06);
+        }
+
+        .search-input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border: 1px solid #d1d5db;
+            background-color: #ffffff;
+            border-radius: 4px;
+            min-height: 44px;
+            width: 200px;
+        }
+
+        .search-input i {
+            color: #2E2E2EBF;
+        }
+
+        .search-input input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 14px;
+            color: #2E2E2EBF;
+        }
+
+        .date-range {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .date-range input {
+            padding: 10px 12px;
+            height: 44px;
+            border: 1px solid #d1d5db;
+            background-color: #ffffff;
+            font-size: 14px;
+            color: #2E2E2EBF;
+            border-radius: 4px;
+            width: 140px;
+        }
+
+        .update-btn {
+            padding: 10px 24px;
+            height: 44px;
+            background-color: #2C7BE5;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            min-width: 100px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .update-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .date-range span {
+            color: #2E2E2E80;
+            font-weight: 600;
+        }
+
+        .table-section {
+            padding: 0px;
+            background-color: #ffffff;
+            border-radius: 4px;
+            box-shadow: 0 1px 12px rgba(15, 23, 42, 0.06);
+            overflow-x: auto;
+            min-height: 520px;
+            border: 1px solid #2E2E2E40;
+        }
+
+        .appointments-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 900px;
+        }
+
+        .appointments-table thead {
+            background-color: #F1F5F8;
+        }
+
+        .appointments-table th,
+        .appointments-table td {
+            padding: 18px 16px;
+            text-align: left;
+            vertical-align: middle;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .appointments-table th {
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.06em;
+            color: #2E2E2E;
+        }
+
+        .appointments-table td {
+            font-size: 12px;
+            color: #2E2E2E;
+        }
+
+        .appointments-table tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .action-icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #action-icon1{
+            color:#E23D28
+        }
+
+        .action-icons button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: #2C7BE5;
+            transition: color 0.2s ease;
+        }
+
+        .action-icons button:hover {
+            color: #ef4444;
+        }
+
+        .no-appointments {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+        }
+
+        .dashboard-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .dashboard-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2E2E2E;
+            margin: 0;
+        }
+
+        .dashboard-subtitle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #64748b;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .dashboard-subtitle i {
+            font-size: 18px;
+        }
+
+        .table-section h3 {
+            margin: 0 0 20px 0;
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .search-section {
+            grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) minmax(280px, 1.5fr) auto;
+            grid-auto-rows: minmax(52px, auto);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="brand">
+                <img src="download (15).jpg" alt="CapMinds logo" class="brand-icon" />
+                <h4 id="company-name">CAPMINDS</h4>
+                 <div class="dashboard-card-header" style="margin-bottom: 40px;">
+                <button id="book-now">+ Book Appointment</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="sidebar-item">
+                <i class="material-symbols-outlined toggle-btn" style="color: black;">keyboard_double_arrow_right</i>
+                <div class="sidebar-label"></div>
+            </div>
+            <div class="sidebar-item">
+                <i class="material-symbols-outlined calendar-btn">calendar_today</i>
+                <div class="sidebar-label">Calendar</div>
+            </div>
+            <div class="sidebar-item">
+                <i class="material-symbols-outlined dashboard-btn">dashboard</i>
+                <div class="sidebar-label">Dashboard</div>
+            </div>
+        </div>
+
+        <div class="content dashboard-content">
+           
+            <div class="dashboard-header">
+                <div class="dashboard-title">Practice Dashboard</div>
+            </div>
+
+            <div class="search-section">
+                <div class="search-input">
+                    <i class="material-symbols-outlined">search</i>
+                    <input type="text" id="patientSearch" placeholder="Patient Search">
+                </div>
+                <div class="search-input">
+                    <i class="material-symbols-outlined">search</i>
+                    <input type="text" id="doctorSearch" placeholder="Doctor Search">
+                </div>
+                <div class="date-range">
+                    <i class="material-symbols-outlined">calendar_today</i>
+                    <input type="date" id="dateFrom">
+                    <span>-</span>
+                    <i class="material-symbols-outlined">calendar_today</i>
+                    <input type="date" id="dateTo">
+                </div>
+                <button class="update-btn" onclick="filterAppointments()">Update</button>
+            </div>
+
+            <div class="table-section">
+                <h3 style="padding: 20px 20px 1px; font-size: 16px;">Appointment Details</h3>
+                <table class="appointments-table">
+                    <thead>
+                        <tr>
+                            <th>Patient</th>
+                            <th>Doctor</th>
+                            <th>Hospital</th>
+                            <th>Specialty</th>
+                            <th>Select Date</th>
+                            <th>Select Time</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appointmentsList">
+                        <tr>
+                            <td>Henry James</td>
+                            <td>James Marry</td>
+                            <td>Salus Center (General Hospital)</td>
+                            <td>Dermatology</td>
+                            <td>18/12/2025</td>
+                            <td>12:00 AM - 12:15 AM</td>
+                            <td class="action-icons">
+                                <button aria-label="Edit"><i class="material-symbols-outlined">edit</i></button>
+                                <button aria-label="Delete"><i class="material-symbols-outlined">delete</i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Henry James</td>
+                            <td>James Marry</td>
+                            <td>Ultracare (General Hospital)</td>
+                            <td>Dermatology</td>
+                            <td>18/12/2025</td>
+                            <td>12:00 AM - 12:15 AM</td>
+                            <td class="action-icons">
+                                <button aria-label="Edit"><i class="material-symbols-outlined">edit</i></button>
+                                <button aria-label="Delete"><i class="material-symbols-outlined">delete</i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Appointment -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Schedule Appointment</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <form id="appointmentForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <span class="field-icon material-symbols-outlined" style="padding-left: 12px;">person</span>
+                        <div class="field-box">
+                            <select id="patientName" name="patientName" required>
+                                <option value="" disabled selected hidden>Patient Name</option>
+                                <option value="John Doe">John Doe</option>
+                                <option value="Jane Smith">Jane Smith</option>
+                                <option value="Michael Brown">Michael Brown</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="field-icon material-symbols-outlined" style="padding-left: 12px;">person</span>
+                        <div class="field-box">
+                            <select id="doctorName" name="doctorName" required>
+                                <option value="" disabled selected hidden>Doctor Name</option>
+                                <option value="Dr. Smith">Dr. Smith</option>
+                                <option value="Dr. Johnson">Dr. Johnson</option>
+                                <option value="Dr. Lee">Dr. Lee</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <span class="field-icon material-symbols-outlined" style="padding-left: 12px;">location_on</span>
+                        <div class="field-box">
+                            <select id="hospitalName" name="hospitalName" required>
+                                <option value="" disabled selected hidden>Hospital Name</option>
+                                <option value="City Hospital">City Hospital</option>
+                                <option value="General Hospital">General Hospital</option>
+                                <option value="St. Mary's Hospital">St. Mary's Hospital</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="field-icon material-symbols-outlined" style="padding-left: 12px;">medical_services</span>
+                        <div class="field-box">
+                            <select id="specialty" name="specialty" required>
+                                <option value="" disabled selected hidden>Specialty</option>
+                                <option value="Cardiology">Cardiology</option>
+                                <option value="Dermatology">Dermatology</option>
+                                <option value="Neurology">Neurology</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <span class="field-icon material-symbols-outlined" style="padding-left: 12px;">calendar_today</span>
+                        <div class="field-box">
+                            <input type="date" id="appointmentDate" class="date-input" required>
+                            <span class="custom-placeholder">Select Date</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="field-icon material-symbols-outlined" style="padding-left: 12px;">schedule</span>
+                        <div class="field-box">
+                            <input type="time" id="appointmentTime" class="time-input" required>
+                            <span class="custom-placeholder">Select Time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group reason-group">
+                    <label style="font-size: 14px; font-weight: 400;">Reason</label>
+                    <textarea id="reason" rows="2"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn-save">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
