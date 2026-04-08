@@ -241,7 +241,7 @@ toggleBtn.addEventListener('click', () => {
 
 // Calendar view (current page)
 calendarBtn.addEventListener('click', () => {
-    window.location.href = 'main.html';
+    window.location.href = 'index.html';
 });
 
 // Dashboard view
