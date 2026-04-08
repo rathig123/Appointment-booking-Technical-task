@@ -735,7 +735,31 @@ body{
 @media (max-width: 480px) {
 
   .sidebar{
-    display: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 8px 0;
+    border-right: none;
+    border-bottom: 1px solid #2E2E2E40;
+  }
+
+    .sidebar-item{
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 0;
+  }
+
+  .sidebar-item i{
+    font-size: 20px;
+  }
+
+  .sidebar-label{
+    font-size: 10px;
+    display: block;
   }
 
   .header{
